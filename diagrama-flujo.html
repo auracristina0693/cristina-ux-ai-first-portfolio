@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagrama de flujo — cristina's-portfolio</title>
+<style>
+  :root{
+    --bg:#fafafa;
+    --panel:#ffffff;
+    --border:#e0e0e0;
+    --border-strong:#999999;
+    --text:#101010;
+    --muted:#666666;
+    --data:#2563eb;
+    --data-bg:#eff6ff;
+    --state:#b45309;
+    --state-bg:#fffbeb;
+    --dead:#9333ea;
+    --dead-bg:#faf5ff;
+    --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--mono);
+    padding:32px 16px 64px;
+  }
+  h1{
+    font-size:18px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    text-align:center;
+    margin:0 0 4px;
+  }
+  .subtitle{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    margin:0 0 32px;
+  }
+  .canvas{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .layer-label{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--muted);
+    text-align:center;
+    margin:0 0 10px;
+  }
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+    margin-bottom:8px;
+  }
+  .arrow-down{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:34px;
+    color:var(--muted);
+    font-size:20px;
+  }
+  .box{
+    background:var(--panel);
+    border:1.5px solid var(--border);
+    border-radius:8px;
+    padding:12px 16px;
+    min-width:150px;
+    max-width:230px;
+    text-align:left;
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .box strong{
+    display:block;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:4px;
+  }
+  .box small{
+    color:var(--muted);
+    font-size:11px;
+  }
+  .box.data{ border-color:var(--data); background:var(--data-bg); }
+  .box.data strong{ color:var(--data); }
+  .box.root{
+    border-color:var(--text);
+    border-width:2px;
+    max-width:340px;
+    text-align:center;
+  }
+  .box.root strong{ font-size:14px; }
+  .box.component{ border-color:var(--border-strong); }
+  .box.state-target{ border-color:var(--state); background:var(--state-bg); }
+  .box.state-target strong{ color:var(--state); }
+  .box.dead{ border-color:var(--dead); background:var(--dead-bg); }
+  .box.dead strong{ color:var(--dead); }
+
+  .section-title{
+    text-align:center;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--text);
+    background:var(--panel);
+    border:1px dashed var(--border-strong);
+    border-radius:20px;
+    padding:6px 18px;
+    margin:0 auto 14px;
+    width:fit-content;
+  }
+
+  .divider{
+    border:none;
+    border-top:1px solid var(--border);
+    margin:36px 0 28px;
+  }
+
+  .loop-panel{
+    max-width:820px;
+    margin:0 auto 8px;
+    background:var(--panel);
+    border:1.5px dashed var(--state);
+    border-radius:10px;
+    padding:18px 22px;
+  }
+  .loop-panel h2{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--state);
+    margin:0 0 12px;
+  }
+  .loop-flow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:12.5px;
+  }
+  .loop-flow .step{
+    background:var(--state-bg);
+    border:1px solid var(--state);
+    border-radius:6px;
+    padding:8px 12px;
+    color:#7c2d12;
+  }
+  .loop-flow .arrow{ color:var(--state); font-size:16px; }
+
+  .loop-note{
+    max-width:820px;
+    margin:16px auto 0;
+    background:var(--dead-bg);
+    border:1.5px dashed var(--dead);
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:12px;
+    color:#581c87;
+  }
+  .loop-note strong{ color:var(--dead); }
+
+  .legend{
+    max-width:820px;
+    margin:40px auto 0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    justify-content:center;
+    font-size:11.5px;
+    color:var(--muted);
+  }
+  .legend .item{ display:flex; align-items:center; gap:6px; }
+  .swatch{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+</style>
+</head>
+<body>
+
+  <h1>cristina's-portfolio — estructura y flujo de datos</h1>
+  <p class="subtitle">Diagrama generado a partir del código en src/ — no modifica ningún archivo del proyecto</p>
+
+  <div class="canvas">
+
+    <p class="layer-label">1 · Datos de ejemplo (estáticos, sin backend)</p>
+    <div class="row">
+      <div class="box data">
+        <strong>types.ts</strong>
+        Project, Experiment, WorkflowStep, PortfolioProfile
+      </div>
+      <div class="box data">
+        <strong>data/portfolioData.ts</strong>
+        portfolioProfile · projects[3] · experiments[3] · workflowSteps[3]
+      </div>
+    </div>
+
+    <div class="arrow-down">↓ <small style="font-size:11px;margin-left:6px;">import</small></div>
+
+    <p class="layer-label">2 · Entrada</p>
+    <div class="row">
+      <div class="box component">
+        <strong>main.tsx</strong>
+        createRoot().render(&lt;App /&gt;)
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="row">
+      <div class="box root">
+        <strong>App.tsx</strong>
+        Componente raíz · useState: selectedProject, selectedExperiment · construye mailto: con portfolioProfile.email
+      </div>
+    </div>
+
+    <div class="arrow-down">↓ <small style="font-size:11px;margin-left:6px;">renderiza y pasa props/datos</small></div>
+
+    <p class="layer-label">3 · Secciones / componentes de presentación</p>
+    <div class="row">
+      <div class="box component"><strong>Navbar</strong>prop: onContactClick<br><small>links ancla a #selected-works, #ai-experiments, #contact</small></div>
+      <div class="box component"><strong>Hero</strong><small>inline en App.tsx</small><br>lee portfolioProfile</div>
+      <div class="box component"><strong>Tools Strip</strong><small>inline en App.tsx</small><br>portfolioProfile.tools</div>
+    </div>
+    <div class="row">
+      <div class="box component"><strong>Selected Works</strong>projects.map() →<br>WorkCard{project, onSelect}</div>
+      <div class="box component"><strong>WorkflowSection</strong>workflowSteps + portfolioProfile.workflowTools <small>(sin props, importa directo)</small></div>
+      <div class="box component"><strong>AI Experiments</strong>experiments.map() →<br>ExperimentCard{experiment, onSelect}</div>
+    </div>
+    <div class="row">
+      <div class="box component"><strong>CTA banner</strong><small>inline en App.tsx</small><br>botón → handleContactClick</div>
+      <div class="box component"><strong>Footer</strong><small>inline en App.tsx</small><br>portfolioProfile.email / linkedinUrl</div>
+      <div class="box state-target"><strong>ProjectDetailsModal</strong>props: project = selectedProject, onClose<br><small>solo visible si selectedProject ≠ null</small></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="loop-panel">
+      <h2>Flujo de interacción (el único dato "dinámico" de la app)</h2>
+      <div class="loop-flow">
+        <span class="step">Click en WorkCard</span>
+        <span class="arrow">→</span>
+        <span class="step">onSelect(project)</span>
+        <span class="arrow">→</span>
+        <span class="step">setSelectedProject en App.tsx</span>
+        <span class="arrow">→</span>
+        <span class="step">ProjectDetailsModal se renderiza con ese proyecto</span>
+        <span class="arrow">→</span>
+        <span class="step">botón "Cerrar" → onClose → setSelectedProject(null)</span>
+      </div>
+    </div>
+
+    <div class="loop-note">
+      <strong>Nota:</strong> ExperimentCard también tiene onSelect → setSelectedExperiment, pero hoy ese estado no alimenta ningún modal ni sección visible — el click no tiene efecto visual todavía.
+    </div>
+
+    <div class="legend">
+      <span class="item"><span class="swatch" style="background:var(--data-bg);border:1px solid var(--data);"></span> Datos / tipos estáticos</span>
+      <span class="item"><span class="swatch" style="background:#fff;border:2px solid var(--text);"></span> Componente raíz</span>
+      <span class="item"><span class="swatch" style="background:#fff;border:1px solid var(--border-strong);"></span> Componente de presentación</span>
+      <span class="item"><span class="swatch" style="background:var(--state-bg);border:1px solid var(--state);"></span> Depende de estado (interacción)</span>
+      <span class="item"><span class="swatch" style="background:var(--dead-bg);border:1px solid var(--dead);"></span> Estado sin efecto visual actual</span>
+    </div>
+
+  </div>
+</body>
+</html>

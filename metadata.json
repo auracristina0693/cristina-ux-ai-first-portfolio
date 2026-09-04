@@ -1,0 +1,6 @@
+{
+  "name": "Cristina's Portfolio",
+  "description": "Portfolio MVP for Cristina Salazar, Senior Product Designer specializing in AI-first workflows and complex user flows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
