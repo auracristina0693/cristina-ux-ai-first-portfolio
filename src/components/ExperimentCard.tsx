@@ -18,7 +18,9 @@ export const ExperimentCard: React.FC<ExperimentCardProps> = ({ experiment, onSe
         <img
           src={experiment.image}
           alt={experiment.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter grayscale contrast-105 group-hover:grayscale-0"
+          className={`w-full h-full group-hover:scale-105 transition-transform duration-300 filter grayscale contrast-105 group-hover:grayscale-0 ${
+            experiment.imageFit === 'contain' ? 'object-contain' : 'object-cover'
+          }`}
           loading="lazy"
         />
       </div>

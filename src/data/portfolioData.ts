@@ -12,8 +12,8 @@ export const portfolioProfile: PortfolioProfile = {
   avatarUrl: "/imagen-1.png",
   email: "auracristina0693@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/cristina-salazar",
-  tools: ["STITCH", "FIGMA", "AI STUDIO", "CLAUDE CODE", "GIT", "DEPLOY"],
-  workflowTools: ["STITCH", "FIGMA", "AI STUDIO", "CLAUDE CODE", "GIT", "DEPLOY"]
+  tools: ["STITCH", "FIGMA", "AI STUDIO", "CLAUDE CODE", "GITHUB", "GITBOOK"],
+  workflowTools: ["STITCH", "FIGMA", "AI STUDIO", "CLAUDE CODE", "GITHUB", "GITBOOK"]
 };
 
 export const projects: Project[] = [
@@ -77,22 +77,22 @@ export const experiments: Experiment[] = [
   {
     id: "exp-01",
     code: "EXP_01",
-    title: "SPATIAL UI LAB",
+    title: "Re-design of Telemedicina flow",
     description: "Coming Soon",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=900&q=80"
+    image: "/telemedicina-redesign.jpg"
   },
   {
     id: "exp-02",
     code: "EXP_02",
-    title: "SYNTHETIC TESTING",
+    title: "DonarCol",
     description: "Coming Soon",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"
+    image: "/donarcol.png"
   },
   {
     id: "exp-03",
     code: "EXP_03",
-    title: "PROMPT-TO-UI",
+    title: "Re-design of Fidu amortization table",
     description: "Coming Soon",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=900&q=80"
+    image: "/fidu-amortizacion.png"
   }
 ];

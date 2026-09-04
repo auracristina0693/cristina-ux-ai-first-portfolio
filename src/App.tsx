@@ -109,15 +109,24 @@ export default function App() {
         </section>
 
         {/* ================= TOOLS STRIP ================= */}
-        <section id="tools-strip" className="w-full border-y border-[#e0e0e0] py-4 bg-[#fafafa]">
+        <section id="tools-strip" className="w-full border-y border-[#e0e0e0] py-4 bg-[#fafafa] overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-[14px] uppercase tracking-[0.14em]">
-              <span className="text-[#101010] font-medium">TOOLS :</span>
-              {portfolioProfile.tools.map((tool) => (
-                <span key={tool} className="text-[#555555] hover:text-[#101010] transition-colors">
-                  {tool}
-                </span>
-              ))}
+            <div className="flex items-center gap-8">
+              <span className="shrink-0 font-mono text-[14px] uppercase tracking-[0.14em] text-[#101010] font-medium">
+                TOOLS :
+              </span>
+              <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                <div className="flex w-max items-center gap-10 animate-marquee font-mono text-[14px] uppercase tracking-[0.14em]">
+                  {[...portfolioProfile.tools, ...portfolioProfile.tools].map((tool, index) => (
+                    <span
+                      key={`${tool}-${index}`}
+                      className="shrink-0 text-[#555555] hover:text-[#101010] transition-colors"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>

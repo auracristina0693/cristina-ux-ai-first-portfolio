@@ -23,6 +23,7 @@ export interface Experiment {
   title: string;
   description: string;
   image: string;
+  imageFit?: 'cover' | 'contain';
 }
 
 export interface WorkflowStep {
