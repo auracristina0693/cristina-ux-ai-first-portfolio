@@ -18,7 +18,7 @@ export const ExperimentCard: React.FC<ExperimentCardProps> = ({ experiment, onSe
         <img
           src={experiment.image}
           alt={experiment.title}
-          className={`w-full h-full group-hover:scale-105 transition-transform duration-300 filter grayscale contrast-105 group-hover:grayscale-0 ${
+          className={`w-full h-full group-hover:scale-105 transition-transform duration-300 filter contrast-105 lg:grayscale lg:group-hover:grayscale-0 ${
             experiment.imageFit === 'contain' ? 'object-contain' : 'object-cover'
           }`}
           loading="lazy"
@@ -30,7 +30,7 @@ export const ExperimentCard: React.FC<ExperimentCardProps> = ({ experiment, onSe
         {/* Header Strip */}
         <div className="flex items-center justify-between pb-3 border-b border-[#f0f0f0] mb-3">
           <h3 className="font-mono text-[14px] font-medium text-[#101010] uppercase tracking-[0.08em]">
-            {experiment.title}
+            {experiment.title} <strong className="font-bold">With AI</strong>
           </h3>
           <span className="font-mono text-[14px] text-[#888888] uppercase tracking-[0.08em]">
             {experiment.code}

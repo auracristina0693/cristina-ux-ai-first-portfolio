@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
           href="#" 
           className="flex items-center gap-2 font-mono text-[14px] text-[#101010] uppercase tracking-[0.12em] font-medium hover:opacity-80 transition-opacity"
         >
-          <span className="inline-block w-2 h-2 rounded-full bg-[#101010]" />
+          <img src="/favicon.png" alt="" className="inline-block w-5 h-5 rounded-full object-cover" />
           CRISTI SALAZAR
         </a>
 

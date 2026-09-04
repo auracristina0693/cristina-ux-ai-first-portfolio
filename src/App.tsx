@@ -91,13 +91,13 @@ export default function App() {
                   src={portfolioProfile.avatarUrl}
                   alt={portfolioProfile.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 hover:grayscale-0 transition-all duration-500 ease-out"
+                  className="w-full h-full object-cover object-top filter contrast-105 lg:grayscale lg:group-hover:grayscale-0 transition-all duration-500 ease-out"
                 />
 
                 {/* Animated Hover Cue Indicator */}
                 <div
                   id="hover-cue-badge"
-                  className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 bg-[#101010]/85 backdrop-blur-sm border border-white/20 rounded-full text-white font-mono text-[11px] tracking-wider uppercase shadow-md pointer-events-none group-hover:opacity-0 transition-opacity duration-300 animate-bounce"
+                  className="absolute bottom-4 right-4 z-10 hidden items-center gap-1.5 px-3 py-1.5 bg-[#101010]/85 backdrop-blur-sm border border-white/20 rounded-full text-white font-mono text-[11px] tracking-wider uppercase shadow-md pointer-events-none group-hover:opacity-0 transition-opacity duration-300 animate-bounce lg:flex"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <Sparkles className="w-3 h-3 text-amber-300 animate-spin" style={{ animationDuration: '6s' }} />
