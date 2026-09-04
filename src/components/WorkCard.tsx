@@ -12,7 +12,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelect }) => {
     <article
       id={`work-card-${project.id}`}
       onClick={() => onSelect && onSelect(project)}
-      className="group flex flex-col bg-white border border-[#e0e0e0] hover:border-[#999999] rounded-[8px] overflow-hidden transition-all duration-150 cursor-pointer"
+      className="group flex flex-col bg-white border border-[#e0e0e0] rounded-[8px] overflow-hidden transition-transform duration-200 cursor-pointer hover:scale-[1.02]"
     >
       {/* Top Metadata Strip */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-[#e0e0e0] bg-[#fafafa]">
@@ -26,7 +26,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelect }) => {
 
       {/* Mockup Preview Area */}
       <div className="relative aspect-[16/10] bg-[#f9f9f9] p-4 flex items-center justify-center overflow-hidden border-b border-[#e0e0e0]">
-        <div className="w-full h-full bg-white rounded-md border border-[#e0e0e0] overflow-hidden shadow-xs group-hover:scale-[1.01] transition-transform duration-200 flex flex-col">
+        <div className="w-full h-full bg-white rounded-md border border-[#e0e0e0] overflow-hidden shadow-xs flex flex-col">
           {/* Mini browser top chrome */}
           <div className="h-5 bg-[#f0f0f0] border-b border-[#e0e0e0] flex items-center px-2 gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#d0d0d0]" />
@@ -39,7 +39,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelect }) => {
             <img
               src={project.previewImage}
               alt={project.subtitle || project.title}
-              className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 transition-all duration-300"
+              className="w-full h-full object-cover object-top"
               loading="lazy"
               onError={(e) => {
                 // Graceful fallback if local image is not yet uploaded in /public
@@ -56,11 +56,11 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelect }) => {
       </div>
 
       {/* Bottom Action Strip */}
-      <div className="flex items-center justify-between px-4 py-3 bg-white group-hover:bg-[#fafafa] transition-colors">
+      <div className="flex items-center justify-between px-4 py-3 bg-white">
         <span className="font-mono text-[14px] text-[#101010] uppercase tracking-[0.08em] font-normal">
           VIEW MORE DETAILS
         </span>
-        <ArrowRight className="w-4 h-4 text-[#101010] transform group-hover:translate-x-1 transition-transform" />
+        <ArrowRight className="w-4 h-4 text-[#101010]" />
       </div>
     </article>
   );
