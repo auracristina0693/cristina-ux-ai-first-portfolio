@@ -35,6 +35,20 @@ export const projects: Project[] = [
     detailsUrl: "https://cristi.gitbook.io/cristi-docs/telemedicine"
   },
   {
+    id: "paw-palate",
+    type: "ECOMMERCE",
+    title: "PAW - PALATE",
+    subtitle: "Paw - Palate",
+    description: "Custom-built E-commerce website for a pet food distribution company with specific dietary needs.",
+    client: "Client IPM-CORP",
+    methodology: "Scrum -Methodology",
+    role: "Rol: UX/UI Designer",
+    previewImage: "/paw-palate.png",
+    detailsUrl: "https://app.gitbook.com/o/Mgt190ubz3Xl1GyMQkAi/sites/site_y32f0/preview",
+    impactLabel: "IMPACT",
+    impactValue: "Marketing reported a 30% increase in sales compared to the previous month."
+  },
+  {
     id: "fiduprevisora",
     type: "WEB APP",
     title: "FIDUPREVISORA",
@@ -50,20 +64,6 @@ export const projects: Project[] = [
     rebuildValue: "Selected flows re-engineered with an AI-first workflow — documented in GitBook",
     previewImage: "/fiduprevisora.png",
     detailsUrl: "https://cristi.gitbook.io/cristi-docs/fiduprevisora"
-  },
-  {
-    id: "paw-palate",
-    type: "ECOMMERCE",
-    title: "PAW - PALATE",
-    subtitle: "Paw - Palate",
-    description: "Custom-built E-commerce website for a pet food distribution company with specific dietary needs.",
-    client: "Client IPM-CORP",
-    methodology: "Scrum -Methodology",
-    role: "Rol: UX/UI Designer",
-    previewImage: "/paw-palate.png",
-    detailsUrl: "https://app.gitbook.com/o/Mgt190ubz3Xl1GyMQkAi/sites/site_y32f0/preview",
-    impactLabel: "IMPACT",
-    impactValue: "Marketing reported a 30% increase in sales compared to the previous month."
   }
 ];
 
