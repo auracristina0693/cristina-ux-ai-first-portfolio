@@ -15,6 +15,7 @@ import { SectionHeader } from './components/SectionHeader';
 import { WorkCard } from './components/WorkCard';
 import { ExperimentCard } from './components/ExperimentCard';
 import { WorkflowSection } from './components/WorkflowSection';
+import { toolLogos } from './components/ToolLogos';
 import { ProjectDetailsModal } from './components/ProjectDetailsModal';
 import { portfolioProfile, projects, experiments } from './data/portfolioData';
 import { Sparkles } from 'lucide-react';
@@ -117,12 +118,13 @@ export default function App() {
               </span>
               <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
                 <div className="flex w-max items-center gap-10 animate-marquee font-mono text-[14px] uppercase tracking-[0.14em]">
-                  {[...portfolioProfile.tools, ...portfolioProfile.tools].map((tool, index) => (
+                  {[...toolLogos, ...toolLogos].map((logo, index) => (
                     <span
-                      key={`${tool}-${index}`}
-                      className="shrink-0 text-[#555555] hover:text-[#101010] transition-colors"
+                      key={`${logo.name}-${index}`}
+                      className="shrink-0 flex items-center text-[#555555] hover:text-[#101010] transition-colors"
+                      aria-hidden={index >= toolLogos.length}
                     >
-                      {tool}
+                      {logo.node}
                     </span>
                   ))}
                 </div>

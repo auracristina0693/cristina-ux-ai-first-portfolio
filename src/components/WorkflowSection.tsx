@@ -1,6 +1,11 @@
 import React from 'react';
-import { workflowSteps, portfolioProfile } from '../data/portfolioData';
-import { ArrowRight } from 'lucide-react';
+import { workflowSteps } from '../data/portfolioData';
+
+const stepDescriptions = [
+  'Stitch and Figma turn a prompt into screens and a design system.',
+  "Claude Code's artifacts turn those screens into a working prototype.",
+  'Git and deploy take the prototype live as a real product.',
+];
 
 export const WorkflowSection: React.FC = () => {
   return (
@@ -16,43 +21,43 @@ export const WorkflowSection: React.FC = () => {
           I design with an AI-first workflow — from research to functional prototype
         </h2>
 
-        {/* Workflow Steps Horizontal Pipeline */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12">
-          {workflowSteps.map((step, index) => (
-            <React.Fragment key={step.stepNumber}>
-              <div 
+        {/* Workflow Steps — catalog cards */}
+        <ol className="grid grid-cols-1 md:grid-cols-3 gap-3 text-left mb-14">
+          {workflowSteps.map((step, index) => {
+            const id = String(step.stepNumber).padStart(2, '0');
+            return (
+              <li
+                key={step.stepNumber}
                 id={`workflow-step-${step.stepNumber}`}
-                className="w-full sm:w-auto px-6 py-3.5 bg-white border border-[#e0e0e0] rounded-[6px] shadow-2xs flex items-center justify-center gap-2 hover:border-[#999999] transition-colors"
+                className="flex flex-col bg-white border border-[#e0e0e0] rounded-[8px] hover:border-[#999999] transition-colors overflow-hidden"
               >
-                <span className="font-mono text-[14px] text-[#101010] uppercase tracking-[0.08em]">
-                  {step.stepNumber} · {step.label}
-                </span>
-              </div>
-              {index < workflowSteps.length - 1 && (
-                <ArrowRight className="hidden sm:block w-4 h-4 text-[#888888] shrink-0" />
-              )}
-            </React.Fragment>
-          ))}
-        </div>
+                <div className="flex flex-col justify-between gap-10 p-6 min-h-[200px] flex-1">
+                  <span className="font-mono text-[54px] leading-none tracking-[0.025em] text-[#101010]">
+                    {id}
+                  </span>
+                  <p className="font-mono text-[14px] text-[#555555] leading-relaxed">
+                    {stepDescriptions[index]}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between gap-3 px-3 py-2.5 border-t border-[#e0e0e0]">
+                  <span className="font-mono text-[11px] text-[#555555] uppercase tracking-[0.08em]">
+                    W {id}
+                  </span>
+                  <span className="font-mono text-[12px] text-[#555555] uppercase tracking-[0.08em] text-right">
+                    {step.label}
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
 
         {/* Live Rebuild Status Badge */}
-        <div className="mb-6">
+        <div>
           <span className="font-mono text-[14px] text-[#888888] tracking-[0.04em] block leading-relaxed">
             This portfolio itself was designed and built using this exact workflow —<br />
             from Figma to finished page.
           </span>
-        </div>
-
-        {/* Workflow Tools Pill Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
-          {portfolioProfile.workflowTools.map((tool) => (
-            <span
-              key={tool}
-              className="px-3.5 py-1.5 bg-white border border-[#e0e0e0] text-[#555555] font-mono text-[14px] uppercase tracking-[0.08em] rounded-[4px]"
-            >
-              {tool}
-            </span>
-          ))}
         </div>
       </div>
     </section>
