@@ -44,7 +44,7 @@ export const projects: Project[] = [
     methodology: "Scrum -Methodology",
     role: "Rol: UX/UI Designer",
     previewImage: "/paw-palate.png",
-    detailsUrl: "https://app.gitbook.com/o/Mgt190ubz3Xl1GyMQkAi/sites/site_y32f0/preview",
+    detailsUrl: "https://cristi.gitbook.io/cristi-docs/paw-palate",
     impactLabel: "IMPACT",
     impactValue: "Marketing reported a 30% increase in sales compared to the previous month."
   },
