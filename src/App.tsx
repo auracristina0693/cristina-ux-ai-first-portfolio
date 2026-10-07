@@ -17,7 +17,7 @@ import { ExperimentCard } from './components/ExperimentCard';
 import { WorkflowSection } from './components/WorkflowSection';
 import { toolLogos } from './components/ToolLogos';
 import { ProjectDetailsModal } from './components/ProjectDetailsModal';
-import { portfolioProfile, projects, experiments } from './data/portfolioData';
+import { portfolioProfile, projects, experiments, marginaliaProject } from './data/portfolioData';
 import { Sparkles } from 'lucide-react';
 import { Project, Experiment } from './types';
 
@@ -117,15 +117,22 @@ export default function App() {
                 TOOLS :
               </span>
               <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-                <div className="flex w-max items-center gap-10 animate-marquee font-mono text-[14px] uppercase tracking-[0.14em]">
-                  {[...toolLogos, ...toolLogos].map((logo, index) => (
-                    <span
-                      key={`${logo.name}-${index}`}
-                      className="shrink-0 flex items-center text-[#555555] hover:text-[#101010] transition-colors"
-                      aria-hidden={index >= toolLogos.length}
-                    >
-                      {logo.node}
-                    </span>
+                <div
+                  className="flex w-max items-center animate-marquee font-mono text-[14px] uppercase tracking-[0.14em]"
+                  style={{ animationDuration: '40s' }}
+                >
+                  {/* Dos grupos idénticos: al mover -50% el loop es continuo y nunca queda hueco */}
+                  {[0, 1].map((group) => (
+                    <div key={group} className="flex shrink-0 items-center gap-10 pr-10" aria-hidden={group === 1}>
+                      {Array.from({ length: 6 }).flatMap(() => toolLogos).map((logo, index) => (
+                        <span
+                          key={`${group}-${logo.name}-${index}`}
+                          className="shrink-0 flex items-center text-[#555555] hover:text-[#101010] transition-colors"
+                        >
+                          {logo.node}
+                        </span>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -153,17 +160,21 @@ export default function App() {
 
         {/* ================= AI EXPERIMENTS & MICRO-PROTOTYPES ================= */}
         <section id="ai-experiments" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <SectionHeader id="header-ai-experiments" title="AI EXPERIMENTS & MICRO-PROTOTYPES" />
+          <SectionHeader id="header-ai-experiments" title="PROJECTS BUILT WITH AI & MICRO-PROTOTYPES" />
 
           {/* Section Introduction */}
           <div className="max-w-3xl mb-12">
             <p className="font-mono text-[16px] text-[#101010] leading-relaxed">
-              I love learning day by day. The only way to do that is by doing. That's why I spend my time creating and improving experiments — prototypes and flow improvements you can see below.
+              I love learning day by day. The only way to do that is by doing. Below are some of the projects I've built with AI, along with a few small flows made with the workflow I describe above.
             </p>
           </div>
 
           {/* Experiments Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <WorkCard
+              project={marginaliaProject}
+              onSelect={(proj) => setSelectedProject(proj)}
+            />
             {experiments.map((exp) => (
               <ExperimentCard
                 key={exp.id}

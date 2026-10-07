@@ -73,14 +73,21 @@ export const workflowSteps: WorkflowStep[] = [
   { stepNumber: 3, label: "PROMPT TO PRODUCT" }
 ];
 
+export const marginaliaProject: Project = {
+  id: "marginalia",
+  type: "APP MOBILE",
+  title: "MARGINALIA",
+  subtitle: "Marginalia — Ebook Reader with AI",
+  description: "Ebook reader app for PDF and EPUB files that uses AI to support the reading experience.",
+  role: "Rol: Product Designer",
+  ctaLabel: "Try the app",
+  detailsUrl: "https://marginal-ia.app/",
+  impactLabel: "STATUS",
+  impactValue: "Coming soon",
+  previewImage: "/marginalia-ebook-reader.jpg"
+};
+
 export const experiments: Experiment[] = [
-  {
-    id: "exp-01",
-    code: "EXP_01",
-    title: "Re-design of Telemedicina flow",
-    description: "Coming Soon",
-    image: "/telemedicina-redesign.jpg"
-  },
   {
     id: "exp-02",
     code: "EXP_02",

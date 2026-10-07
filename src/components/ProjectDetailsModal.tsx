@@ -129,7 +129,7 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
             target={project.detailsUrl && project.detailsUrl.startsWith('http') ? "_blank" : undefined}
             rel={project.detailsUrl && project.detailsUrl.startsWith('http') ? "noopener noreferrer" : undefined}
           >
-            See more <ArrowUpRight className="inline w-4 h-4 ml-1" />
+            {project.ctaLabel || 'See more'} <ArrowUpRight className="inline w-4 h-4 ml-1" />
           </PillButton>
         </div>
       </div>

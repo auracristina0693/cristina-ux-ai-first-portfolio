@@ -14,6 +14,7 @@ export interface Project {
   rebuildValue?: string;
   previewImage: string;
   detailsUrl?: string;
+  ctaLabel?: string;
   category?: string;
 }
 
