@@ -10,6 +10,7 @@
     --color-muted-soft: #888888;
     --color-border-soft: #c8c8c8;
     --color-border-subtle: #e0e0e0;
+    --color-primary: #6163C8;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
@@ -46,4 +47,50 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Texto de cuerpo en Outfit; títulos y subtítulos en Poppins */
+body {
+  font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body .font-mono,
+body .font-sans {
+  font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h1.font-mono,
+body h2.font-mono,
+body h3.font-mono,
+body h4.font-mono,
+body h2.font-sans,
+body .title-mono {
+  font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.12);
+}
+
+.btn-primary:active {
+  filter: brightness(0.94);
+}
+
+.text-gradient {
+  width: fit-content;
+  color: #6163C8;
+  background-image: linear-gradient(90deg, #6D16B4 0%, #6163C8 50%, #6490D4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

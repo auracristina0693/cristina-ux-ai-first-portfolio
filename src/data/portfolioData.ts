@@ -3,13 +3,14 @@ import cristinaPortrait from '../assets/images/cristina_portrait_1788052133569.j
 
 export const portfolioProfile: PortfolioProfile = {
   name: "CRISTINA SALAZAR",
-  titleBadge: "PRODUCT DESIGNER — AI POWERED",
+  titleBadge: "PRODUCT DESIGNER · AI-POWERED SYSTEMS",
   bio: "Senior Product Designer specializing in complex user flows and data-driven decisions. My differentiator is an",
   bioHighlight: "AI-first workflow",
   timeframeHighlight: "to weeks, not months.",
-  experienceBadge: "6 YEARS OF PRODUCT DESIGN",
-  locationBadge: "LATAM REMOTE",
-  avatarUrl: "/imagen-1.png",
+  experienceBadge: "6+ Years Specialization",
+  locationBadge: "Remote · LATAM / EST",
+  focusBadge: "Design Tokens & LLM Tooling",
+  avatarUrl: "/cristina-hero.jpg",
   email: "auracristina0693@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/cristina-salazar",
   tools: ["STITCH", "FIGMA", "AI STUDIO", "CLAUDE CODE", "GITHUB", "GITBOOK"],

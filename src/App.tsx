@@ -11,14 +11,13 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { PillButton } from './components/PillButton';
-import { SectionHeader } from './components/SectionHeader';
 import { WorkCard } from './components/WorkCard';
 import { ExperimentCard } from './components/ExperimentCard';
 import { WorkflowSection } from './components/WorkflowSection';
 import { toolLogos } from './components/ToolLogos';
 import { ProjectDetailsModal } from './components/ProjectDetailsModal';
 import { portfolioProfile, projects, experiments, marginaliaProject } from './data/portfolioData';
-import { Sparkles } from 'lucide-react';
+import { Clock, Globe, Box } from 'lucide-react';
 import { Project, Experiment } from './types';
 
 export default function App() {
@@ -42,12 +41,16 @@ export default function App() {
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div>
                 {/* Eyebrow */}
-                <span className="inline-block font-mono text-[14px] text-[#555555] uppercase tracking-[0.18em] mb-4">
+                <span
+                  id="hero-title-badge"
+                  className="inline-flex items-center gap-2 px-3 py-1 mb-5 bg-[#f4f4f4] border border-[#e0e0e0] rounded-full font-mono text-[12px] text-[#555555] uppercase tracking-[0.12em]"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#101010]" />
                   {portfolioProfile.titleBadge}
                 </span>
 
                 {/* Display Title */}
-                <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl font-medium tracking-[0.03em] text-[#101010] leading-[1.05] uppercase mb-8">
+                <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.03em] text-gradient leading-[1.05] uppercase mb-8">
                   CRISTINA<br />SALAZAR
                 </h1>
 
@@ -63,13 +66,6 @@ export default function App() {
                     {portfolioProfile.timeframeHighlight}
                   </strong>
                 </p>
-
-                {/* Experience & Location Badges */}
-                <div className="flex flex-wrap items-center gap-2 font-mono text-[14px] text-[#555555] uppercase tracking-[0.08em] mb-10">
-                  <span>{portfolioProfile.experienceBadge}</span>
-                  <span>•</span>
-                  <span>{portfolioProfile.locationBadge}</span>
-                </div>
               </div>
 
               {/* Action Button */}
@@ -86,26 +82,25 @@ export default function App() {
 
             {/* Right Hero Image / Avatar Frame */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md aspect-[4/5] bg-white rounded-[8px] border border-[#e0e0e0] overflow-hidden flex items-end justify-center group cursor-pointer shadow-sm">
+              <div className="relative w-full max-w-md aspect-[4/5] bg-white rounded-[8px] border border-[#e0e0e0] overflow-hidden flex items-end justify-center shadow-sm">
                 <img
                   id="hero-portrait-image"
                   src={portfolioProfile.avatarUrl}
                   alt={portfolioProfile.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top filter contrast-105 lg:grayscale lg:group-hover:grayscale-0 transition-all duration-500 ease-out"
+                  className="w-full h-full object-cover object-top"
                 />
-
-                {/* Animated Hover Cue Indicator */}
-                <div
-                  id="hover-cue-badge"
-                  className="absolute bottom-4 right-4 z-10 hidden items-center gap-1.5 px-3 py-1.5 bg-[#101010]/85 backdrop-blur-sm border border-white/20 rounded-full text-white font-mono text-[11px] tracking-wider uppercase shadow-md pointer-events-none group-hover:opacity-0 transition-opacity duration-300 animate-bounce lg:flex"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <Sparkles className="w-3 h-3 text-amber-300 animate-spin" style={{ animationDuration: '6s' }} />
-                  <span>Hover for color</span>
-                </div>
               </div>
             </div>
+          </div>
+
+          {/* Meta row */}
+          <div id="hero-meta" className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-14 font-mono text-[14px] text-[#101010]">
+            <span className="inline-flex items-center gap-2.5"><Clock className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.experienceBadge}</span>
+            <span aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-[#c8c8c8]" />
+            <span className="inline-flex items-center gap-2.5"><Globe className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.locationBadge}</span>
+            <span aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-[#c8c8c8]" />
+            <span className="inline-flex items-center gap-2.5"><Box className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.focusBadge}</span>
           </div>
         </section>
 
@@ -142,9 +137,13 @@ export default function App() {
 
         {/* ================= SELECTED WORKS ================= */}
         <section id="selected-works" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <SectionHeader id="header-selected-works" title="SELECTED WORKS" />
+          <div id="header-selected-works" className="w-full pb-6 mb-10 border-b border-[#e0e0e0] flex flex-col items-center text-center gap-3">
+            <img src="/illustrations/featured-works.svg" alt="" aria-hidden="true" className="shrink-0 w-[96px] sm:w-[150px] h-auto" />
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#6163C8] leading-[1.1] tracking-[0.01em]">Featured Works</h2>
+            <p className="text-[18px] leading-relaxed text-[#555555] max-w-xl">Three products I designed end to end: a telehealth portal, a fiduciary platform and an e-commerce store.</p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <WorkCard
                 key={project.id}
@@ -160,17 +159,14 @@ export default function App() {
 
         {/* ================= AI EXPERIMENTS & MICRO-PROTOTYPES ================= */}
         <section id="ai-experiments" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <SectionHeader id="header-ai-experiments" title="PROJECTS BUILT WITH AI & MICRO-PROTOTYPES" />
-
-          {/* Section Introduction */}
-          <div className="max-w-3xl mb-12">
-            <p className="font-mono text-[16px] text-[#101010] leading-relaxed">
-              I love learning day by day. The only way to do that is by doing. Below are some of the projects I've built with AI, along with a few small flows made with the workflow I describe above.
-            </p>
+          <div id="header-ai-experiments" className="w-full pb-6 mb-12 border-b border-[#e0e0e0] flex flex-col items-center text-center gap-3">
+            <img src="/illustrations/projects-built-with-ai.svg" alt="" aria-hidden="true" className="shrink-0 w-[96px] sm:w-[150px] h-auto" />
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#6163C8] leading-[1.1] tracking-[0.01em] max-w-4xl [text-wrap:balance]">Projects Built with AI</h2>
+            <p className="text-[18px] leading-relaxed text-[#555555] max-w-2xl">I love learning day by day. The only way to do that is by doing. Below are some of the projects I've built with AI, along with a few small flows made with the workflow I describe above.</p>
           </div>
 
           {/* Experiments Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <WorkCard
               project={marginaliaProject}
               onSelect={(proj) => setSelectedProject(proj)}
@@ -188,9 +184,13 @@ export default function App() {
         {/* ================= CTA BANNER ================= */}
         <section id="contact" className="w-full border-t border-[#e0e0e0] py-24 bg-[#fafafa]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-            <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl text-[#101010] font-normal uppercase tracking-[0.06em] leading-tight max-w-2xl mb-10">
-              READY TO ACCELERATE YOUR PRODUCT DESIGN CYCLE?
+            <img src="/illustrations/contact-me.svg" alt="" aria-hidden="true" className="shrink-0 w-[96px] sm:w-[150px] h-auto mb-3" />
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#6163C8] leading-[1.1] tracking-[0.01em] max-w-2xl mb-10">
+              Ready to Accelerate Your Product Design Cycle?
             </h2>
+            <p className="text-[18px] leading-relaxed text-[#555555] max-w-xl -mt-6 mb-10">
+              Let's talk about how an AI-first workflow can shorten your next design cycle.
+            </p>
 
             <PillButton
               id="cta-contact-button"

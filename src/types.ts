@@ -40,6 +40,7 @@ export interface PortfolioProfile {
   timeframeHighlight: string;
   experienceBadge: string;
   locationBadge: string;
+  focusBadge: string;
   avatarUrl: string;
   email: string;
   linkedinUrl: string;
