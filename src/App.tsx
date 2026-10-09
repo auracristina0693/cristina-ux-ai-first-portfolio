@@ -78,6 +78,15 @@ export default function App() {
                   EXPLORE CASE STUDIES
                 </PillButton>
               </div>
+
+              {/* Meta row */}
+              <div id="hero-meta" className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 font-mono text-[14px] text-[#101010]">
+                <span className="inline-flex items-center gap-2.5"><Clock className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.experienceBadge}</span>
+                <span aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-[#c8c8c8]" />
+                <span className="inline-flex items-center gap-2.5"><Globe className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.locationBadge}</span>
+                <span aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-[#c8c8c8]" />
+                <span className="inline-flex items-center gap-2.5"><Box className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.focusBadge}</span>
+              </div>
             </div>
 
             {/* Right Hero Image / Avatar Frame */}
@@ -92,15 +101,6 @@ export default function App() {
                 />
               </div>
             </div>
-          </div>
-
-          {/* Meta row */}
-          <div id="hero-meta" className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-14 font-mono text-[14px] text-[#101010]">
-            <span className="inline-flex items-center gap-2.5"><Clock className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.experienceBadge}</span>
-            <span aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-[#c8c8c8]" />
-            <span className="inline-flex items-center gap-2.5"><Globe className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.locationBadge}</span>
-            <span aria-hidden="true" className="hidden sm:block w-1 h-1 rounded-full bg-[#c8c8c8]" />
-            <span className="inline-flex items-center gap-2.5"><Box className="w-4 h-4 text-[#6163C8]" />{portfolioProfile.focusBadge}</span>
           </div>
         </section>
 
